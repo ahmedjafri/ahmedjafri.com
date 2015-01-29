@@ -12,7 +12,7 @@ app.use(bodyparser.json());
 
 app.use(express.static(path.join(__dirname, '/build')));
 
-require('./routes/test')(app);
+require('./routes/contact')(app);
 
 server.listen(app.get('port'), function() {
   console.log('server running on port: %d', app.get('port'));
