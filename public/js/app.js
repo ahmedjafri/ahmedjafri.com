@@ -19,7 +19,7 @@ app.config( function ($httpProvider) {
   delete $httpProvider.defaults.headers.common['X-Requested-With'];
 });
 
-app.config(['$routeProvider', function($routeProvider) {
+app.config(['$routeProvider','$locationProvider', function($routeProvider, $locationProvider) {
   $routeProvider
   .when('/', {
     templateUrl: 'js/templates/landing.html'
@@ -30,6 +30,9 @@ app.config(['$routeProvider', function($routeProvider) {
   .otherwise({
     redirectTo: '/'
   });
+
+  // use the HTML5 History API
+  $locationProvider.html5Mode(true);
 }]);
 
 require('./controllers/contact_controller')(app);
