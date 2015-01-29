@@ -15,7 +15,7 @@ app.use(express.static(path.join(__dirname, '/build')));
 require('./routes/contact')(app);
 
 app.get('/*', function(req, res) {
-        res.sendfile(path.join(__dirname, '/build/index.html'));
+        res.sendFile(path.join(__dirname, '/build/index.html'));
 });
 
 server.listen(app.get('port'), function() {
