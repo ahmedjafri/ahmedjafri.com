@@ -1,3 +1,35 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700|Montserrat);
+
 body {
+  background: ##f9f9f9;
+  color: #62706c;
   font-family: Courier, "Lucida Console", monospace;
+}
+
+h1 {
+  font-weight: 300;
+  font-size: 2.5em;
+  font-family: 'Lato', Arial, sans-serif;
+}
+
+h1.legend {
+  padding: 25px 0;
+  line-height: 1.25;
+  text-align: center;
+}
+
+h1.legend span {
+  display: block;
+  padding: 0 0 0.6em 0.1em;
+  font-size: 0.6em;
+  color: #aaa;
+}
+
+a {
+  color: #1ECD97;
+  text-decoration: none;
+}
+
+a:hover, a:focus {
+  color: #74777b;
 }
