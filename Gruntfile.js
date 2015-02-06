@@ -16,7 +16,7 @@ module.exports = function(grunt){
     copy: {
       dev: {
         cwd: 'public',
-        src: ['**/*.html', 'css/**/*.css','img/**/*.*'],
+        src: ['**/*.html','img/**/*.*'],
         expand: true,
         dest: 'build/'
       }
@@ -51,6 +51,17 @@ module.exports = function(grunt){
         }
     },
 
+    sass: {
+      dist: {
+        files: [{
+          expand: true,
+          cwd: 'public/css',
+          src: ['*.scss'],
+          dest: 'build/css',
+          ext: '.css'
+        }]
+      }
+    },
     // grunt-watch will monitor the projects files
     // https://github.com/gruntjs/grunt-contrib-watch
     watch: {
@@ -71,6 +82,6 @@ module.exports = function(grunt){
         }
     }
   });
-  grunt.registerTask('build:dev', ['clean:dev', 'browserify:dev', 'copy:dev']);
+  grunt.registerTask('build:dev', ['clean:dev', 'browserify:dev', 'sass','copy:dev']);
   grunt.registerTask('serve', ['express', 'open', 'watch']);
 };
