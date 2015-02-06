@@ -10,11 +10,30 @@
     <base href="/">
   </head>
   <body>
-    <h1 class="legend">
-      Ahmed Jafri
-      <span>"Good design adds value faster than it adds cost." - Thomas C. Gale</span>
-    </h1>
-    <main data-ng-view></main>
+    <div class="wrapper">
+      <header class="brand-header">
+        <h1 class="ip-logo legend">
+          Ahmed Jafri<span>"Good design adds value faster than it adds cost." - Thomas C. Gale</span>
+        </h1>
+
+        <div class="ip-loader">
+          <svg class="ip-inner" width="60px" height="60px" viewBox="0 0 80 80">
+            <path class="ip-loader-circlebg" d="M40,10C57.351,10,71,23.649,71,40.5S57.351,71,40.5,71 S10,57.351,10,40.5S23.649,10,40.5,10z"/>
+            <path id="ip-loader-circle" class="ip-loader-circle" d="M40,10C57.351,10,71,23.649,71,40.5S57.351,71,40.5,71 S10,57.351,10,40.5S23.649,10,40.5,10z"/>
+          </svg>
+        </div>
+
+      </header>
+      <main class="opacity-no-show">
+        <div style="text-align:center;">
+          <a href="work">Work</a>
+          <a href="/">Me</a>
+          <a href="contact">Contact</a>
+        </div>
+        <div data-ng-view></div>
+      </main>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
     <script src="bundle.js"></script>
   </body>
 </html>

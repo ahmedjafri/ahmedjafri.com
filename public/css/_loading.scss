@@ -1,0 +1,212 @@
+@mixin keyframe ($animation_name) {
+    @-webkit-keyframes #{$animation-name} {@content;}
+    @-moz-keyframes #{$animation-name} { @content;}
+    @keyframes #{$animation-name} {@content;}
+}
+
+@mixin animation ($animation) {
+  -webkit-animation: #{$animation};
+  animation: #{$animation};
+}
+
+.loader-positioning {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  cursor: default;
+}
+
+.ip-logo {
+  @extend .loader-positioning;
+  top: 0;
+  height: 100%;
+  transform: translate3d(0,25%,0);
+}
+
+.ip-loader {
+  @extend .loader-positioning;
+  bottom: 50%;
+}
+
+.brand-header .ip-inner {
+  display: block;
+  margin: 0 auto;
+}
+
+.brand-header .ip-logo svg {
+  min-width: 320px;
+  max-width: 480px;
+  width: 25%;
+}
+
+.brand-header .ip-logo svg path {
+  fill: #1ECD97;
+}
+
+.brand-header .ip-loader svg path {
+  fill: none;
+  stroke-width: 6;
+}
+
+.brand-header .ip-loader svg path.ip-loader-circlebg {
+  stroke: #ddd;
+}
+
+.brand-header .ip-loader svg path.ip-loader-circle {
+  transition: stroke-dashoffset 0.2s;
+  stroke: #1ECD97;
+}
+
+.loading .ip-logo,
+.loading .ip-loader {
+  opacity: 1;
+}
+
+.loading .ip-logo {
+  @include animation(animInitialLogo 1s cubic-bezier(0.7,0,0.3,1) both)
+}
+
+@include keyframe (animInitialLogo) {
+  from { opacity: 0; }
+}
+
+@include keyframe (animateOpacityToShow) {
+  to { opacity: 1; }
+}
+
+.opacity-no-show {
+  opacity: 0;
+}
+
+.opacity-show {
+  opacity: 1;
+}
+
+.animate-opacity-to-show {
+  @include animation(animateOpacityToShow 2s)
+}
+
+.loading .ip-loader {
+  @include animation(animInitialLoader 1s cubic-bezier(0.7,0,0.3,1) both)
+}
+
+@include keyframe (animInitialLoader) {
+    from { 
+      opacity: 0; 
+      -webkit-transform: scale3d(0.5,0.5,1); 
+      transform: scale3d(0.5,0.5,1); 
+    }
+}
+
+.loaded .ip-logo,
+.loaded .ip-loader {
+  opacity: 1;
+}
+
+.loaded .ip-logo {
+  -webkit-transform-origin: 50% 0;
+  transform-origin: 50% 0;
+  @include animation(animLoadedLogo 1s cubic-bezier(0.7,0,0.3,1) forwards)
+}
+
+@include keyframe (animLoadedLogo) {
+  to { 
+    -webkit-transform: translate3d(0,100%,0) translate3d(0,50px,0) scale3d(0.8,0.8,1); 
+    transform: translate3d(0,100%,0) translate3d(0,50px,0) scale3d(0.8,0.8,1); 
+  }
+}
+
+.loaded .ip-loader {
+  @include animation(animLoadedLoader 0.5s cubic-bezier(0.7,0,0.3,1) forwards)
+}
+
+@include keyframe (animLoadedLoader) {
+  to { 
+    opacity: 0; 
+    -webkit-transform: translate3d(0,-100%,0) scale3d(0.3,0.3,1); 
+  }
+}
+
+/* Change the color of the logo */
+.loaded .ip-logo svg path {
+  -webkit-transition: all 0.5s ease 0.3s;
+  transition: all 0.5s ease 0.3s;
+  fill: #f9f9f9;
+}
+
+/* Header animation when loading finishes */
+.loaded .brand-header {
+  @include animation(animLoadedHeader 1s cubic-bezier(0.7,0,0.3,1) forwards)
+}
+
+@include keyframe (animLoadedHeader) {
+    to { 
+      -webkit-transform: translate3d(0,-100%,0); 
+      transform: translate3d(0,-100%,0); 
+      z-index: -1;
+    }
+}
+
+/* Content animations */
+main .loaded h2,
+main .loaded .browser,
+main .loaded .browser .box,
+main .loaded .codrops-demos {
+  @include animation(animLoadedContent 1s cubic-bezier(0.7,0,0.3,1) both)
+}
+
+main .loaded h2,
+main .loaded .browser .box:first-child {
+  -webkit-animation-delay: 0.1s;
+  animation-delay: 0.1s;
+}
+
+.loaded .codrops-demos,
+main .loaded .browser .box:nth-child(2) {
+  -webkit-animation-delay: 0.15s;
+  animation-delay: 0.15s;
+}
+
+main .loaded .browser .box:nth-child(3) {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+
+@include keyframe (animLoadedContent) {
+  from { 
+    opacity: 0; 
+    -webkit-transform: scale3d(0.3,0.3,1); 
+    transform: scale3d(0.3,0.3,1); 
+  }
+}
+
+.layout-switch .brand-header {
+  position: absolute;
+}
+
+.no-js .brand-header {
+  position: relative;
+  min-height: 0px;
+}
+
+.no-js .brand-header .ip-logo {
+  margin-top: 20px;
+  height: 180px;
+  opacity: 1;
+  transform: none;
+}
+
+.no-js .brand-header .ip-logo svg path {
+  fill: #f9f9f9;
+}
+
+@media screen and (max-width: 45em) {
+  main h2 {
+    font-size: 2.25em;
+    font-size: 10vw;
+  }
+  .box {
+    width: 100%;
+  }
+}
