@@ -66,7 +66,7 @@ module.exports = function(grunt){
     // https://github.com/gruntjs/grunt-contrib-watch
     watch: {
         all: {
-                files: ['public/**/*.html',"public/**/*.css","public/**/*.js"],
+                files: ['public/**/*.html',"public/**/*.scss","public/**/*.js"],
                 options: {
                     livereload: true
                 },
