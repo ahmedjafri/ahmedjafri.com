@@ -36,3 +36,4 @@ app.config(['$routeProvider','$locationProvider', function($routeProvider, $loca
 }]);
 
 require('./controllers/contact_controller')(app);
+require('./controllers/nav_controller')(app);
