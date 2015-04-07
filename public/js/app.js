@@ -28,7 +28,7 @@ app.config(['$routeProvider','$locationProvider', function($routeProvider, $loca
     templateUrl: 'js/templates/contact.html'
   })
   .otherwise({
-    redirectTo: '/'
+    templateUrl: 'js/templates/404.html'
   });
 
   // use the HTML5 History API
