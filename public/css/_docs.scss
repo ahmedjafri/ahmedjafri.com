@@ -48,22 +48,25 @@ html {
 .tm-section,
 .tm-footer { padding: 50px 0; }
 
+.tm-middle { min-height: 300px; }
+
 /* Tablet and bigger */
 @media (min-width: 768px) {
 
-    .tm-middle,
     .tm-section,
     .tm-footer { padding: 90px 0; }
+
+    .tm-middle { min-height: 400px; }
 
 }
 
 /* Large screen and bigger */
 @media (min-width: 1220px) {
 
-    .tm-middle,
     .tm-section,
     .tm-footer { padding: 120px 0; }
 
+    .tm-middle { min-height: 600px; }
 }
 
 
