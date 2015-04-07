@@ -4,7 +4,8 @@ module.exports = function(app) {
 	app.service('NavItems',['$rootScope', function($rootScope) {
 		var service = {
 			items:[
-				{name:'Home',location:'/'},
+				{name: 'Blog', location:'/blog'},
+				{name: 'About Me', location:'/aboutme'},
 				{name: 'Contact', location:'/contact'}
 			],
 
