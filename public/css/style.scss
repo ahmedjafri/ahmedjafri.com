@@ -20,12 +20,7 @@ span.responsive-header {
 	span.responsive-header { font-size: 16px; }
 }
 
-.tm-footer.h1, 
-.tm-footer.h2, 
-.tm-footer.h3, 
-.tm-footer.h4, 
-.tm-footer.h5, 
-.tm-footer.h6 {
+.tm-footer > h1, h2, h3, h4, h5, h6 {
 	color: #ddd !important;
 }
 
