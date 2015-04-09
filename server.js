@@ -18,6 +18,31 @@ app.get('/*', function(req, res) {
         res.sendFile(path.join(__dirname, '/build/index.html'));
 });
 
+app.set('env','development');
+
+// development error handler
+// will print stacktrace
+if (app.get('env') === 'development') {
+ 
+  app.use(function(err, req, res, next) {
+    res.status(err.status || 500).send({
+        message: err.message,
+        error: err
+    });
+  });
+ 
+}
+else { 
+	// production error handler
+	// no stacktraces leaked to user
+	app.use(function(err, req, res, next) {
+	    res.status(err.status || 500).send({
+	        message: err.message,
+	        error: {}
+	    });
+	});
+}
+
 server.listen(app.get('port'), function() {
   console.log('server running on port: %d', app.get('port'));
 });
