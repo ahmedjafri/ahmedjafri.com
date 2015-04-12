@@ -1,5 +1,5 @@
 <!doctype html>
-<html data-ng-app="AhmedJafri" ng-cloak>
+<html data-ng-app="AhmedJafri">
   <head>
     <meta charset="utf-8">
     <title>Ahmed Jafri</title>
@@ -19,7 +19,7 @@
 
         <ul class="uk-navbar-nav uk-hidden-small">
             <li ng-repeat="item in navItems" ng-class="{'uk-active': item.active }">
-              <a href="{{item.location}}">{{item.name}}</a>
+              <a href="{{item.location}}" ng-bind="item.name"></a>
             </li>
         </ul>
 
@@ -59,7 +59,7 @@
       <div class="uk-offcanvas-bar" ng-controller="NavController">
           <ul class="uk-nav uk-nav-offcanvas uk-nav-parent-icon" data-uk-nav="{multiple:true}">
               <li ng-repeat="item in navItems" ng-class="{'uk-active': item.active }">
-                <a href="{{item.location}}">{{item.name}}</a>
+                <a href="{{item.location}}" ng-bind="item.name"></a>
               </li>
           </ul>
       </div>
