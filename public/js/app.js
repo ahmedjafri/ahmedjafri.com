@@ -2,8 +2,9 @@
 
 require('angular/angular');
 require('angular-route');
+require('./angular-soundcloud-player');
 
-var app = angular.module('AhmedJafri', ['ngRoute']);
+var app = angular.module('AhmedJafri', ['ngRoute','angular-soundcloud-player']);
 
 // Run
 

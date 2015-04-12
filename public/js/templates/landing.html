@@ -1,9 +1,15 @@
 
 <article class="uk-article">
-<h1>احمد</h1>
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-
-هنالك العديد من الأنواع المتوفرة لنصوص لوريم إيبسوم، ولكن الغالبية تم تعديلها بشكل ما عبر إدخال بعض النوادر أو الكلمات العشوائية إلى النص. إن كنت تريد أن تستخدم نص لوريم إيبسوم ما، عليك أن تتحقق أولاً أن ليس هناك أي كلمات أو عبارات محرجة أو غير لائقة مخبأة في هذا النص. بينما تعمل جميع مولّدات نصوص لوريم إيبسوم على الإنترنت على إعادة تكرار مقاطع من نص لوريم إيبسوم نفسه عدة مرات بما تتطلبه الحاجة، يقوم مولّدنا هذا باستخدام كلمات من قاموس يحوي على أكثر من 200 كلمة لا تينية، مضاف إليها مجموعة من الجمل النموذجية، لتكوين نص لوريم إيبسوم ذو شكل منطقي قريب إلى النص الحقيقي. وبالتالي يكون النص الناتح خالي من التكرار، أو أي كلمات أو عبارات غير لائقة أو ما شابه. وهذا ما يجعله أول مولّد نص لوريم إيبسوم حقيقي على الإنترنت.
-
-<div style="height:400px;"></div>
+<h1>Songs I'm listening to</h1>
+<hr />
+<div soundcloud-player="/users/4246445/favorites">
+	<figure class="uk-overlay uk-overlay-hover uk-thumbnail" ng-repeat="track in tracks">
+	    <img src="{{ track.artwork_url }}" width="200" height="200" alt="">
+	    <figcaption class="uk-overlay-panel uk-overlay-fade uk-overlay-background" style="text-align:center;line-height: 70px;">
+	    	<h3>{{ track.title }}</h3>
+	    	<i class="uk-icon-play uk-icon-medium"></i>
+	    </figcaption>
+	    <a class="uk-position-cover" href="#" ng-click="playTrack(track.uri)"></a>
+	</figure>
+</div>
 </article>

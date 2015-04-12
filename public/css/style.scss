@@ -42,4 +42,10 @@ hr.article-divider {
 	margin: 0px 0px;
 }
 
+figcaption > h3 {
+	font-size: 1em;
+    text-overflow: ellipsis;
+    height: 3em;
+}
+
 @import "docs";
