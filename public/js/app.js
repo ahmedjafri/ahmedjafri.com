@@ -30,6 +30,9 @@ app.config(['$routeProvider','$locationProvider', function($routeProvider, $loca
   .when('/aboutme', {
     templateUrl: 'js/templates/aboutme.html'
   })
+  .when('/blog', {
+    templateUrl: 'js/templates/blog.html'
+  })
   .otherwise({
     templateUrl: 'js/templates/404.html'
   });
