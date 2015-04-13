@@ -7,9 +7,9 @@
 	    <img src="{{ track.artwork_url }}" width="200" height="200" alt="">
 	    <figcaption class="uk-overlay-panel uk-overlay-fade uk-overlay-background" style="text-align:center;line-height: 70px;">
 	    	<h3>{{ track.title }}</h3>
-	    	<i class="uk-icon-play uk-icon-medium"></i>
+	    	<i class="uk-icon-play uk-icon-medium" ng-class="getIcon(track)"></i>
 	    </figcaption>
-	    <a class="uk-position-cover" href="#" ng-click="playTrack(track.uri)"></a>
+	    <a class="uk-position-cover" href="#" ng-click="playTrack(track)"></a>
 	</figure>
 </div>
 </article>
