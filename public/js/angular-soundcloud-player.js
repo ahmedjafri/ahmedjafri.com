@@ -4,6 +4,8 @@ require('angular/angular');
 
 var player = angular.module('angular-soundcloud-player', []);
 var cachedTracks = undefined;
+var globalPlayer = undefined;
+var currentTrack = undefined;
 
 player.directive('soundcloudPlayer', function() {
     return {
@@ -40,25 +42,25 @@ player.directive('soundcloudPlayer', function() {
             }
 
             $scope.playTrack = function(track) {
-                if($scope.player && $scope.currentTrack.id == track.id) {
-                    $scope.player.togglePause();
+                if(globalPlayer && currentTrack.id == track.id) {
+                    globalPlayer.togglePause();
                     return;
                 }
 
             	SC.stream(track.uri, {
 					useHTML5Audio: true
             	}, function(sound){
-            		if($scope.player)
-            			$scope.player.stop();
+            		if(globalPlayer)
+            			globalPlayer.stop();
 
                     var shouldCallDigest = false;
-                    if(!$scope.player)
+                    if(!globalPlayer)
                         shouldCallDigest = true;
 
-                    $scope.player = sound;
-                    $scope.currentTrack = track;
+                    globalPlayer = sound;
+                    currentTrack = track;
 
-					$scope.player.play();
+					globalPlayer.play();
 
                     if(shouldCallDigest)
                         $scope.$digest();
@@ -66,7 +68,7 @@ player.directive('soundcloudPlayer', function() {
             };
 
             $scope.getIcon = function(track) {
-                if($scope.currentTrack && $scope.currentTrack.id == track.id && !$scope.player.paused)
+                if(currentTrack && currentTrack.id == track.id && !globalPlayer.paused)
                     return "uk-icon-pause"
                 else
                     return "uk-icon-play"
