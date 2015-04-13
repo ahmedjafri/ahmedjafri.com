@@ -51,10 +51,17 @@ player.directive('soundcloudPlayer', function() {
             		if($scope.player)
             			$scope.player.stop();
 
+                    var shouldCallDigest = false;
+                    if(!$scope.player)
+                        shouldCallDigest = true;
+
                     $scope.player = sound;
                     $scope.currentTrack = track;
 
 					$scope.player.play();
+
+                    if(shouldCallDigest)
+                        $scope.$digest();
 				});
             };
 
