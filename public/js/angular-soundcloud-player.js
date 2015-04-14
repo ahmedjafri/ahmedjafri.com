@@ -67,11 +67,11 @@ player.directive('soundcloudPlayer', function() {
 				});
             };
 
-            $scope.getIcon = function(track) {
+            $scope.isPlaying = function(track) {
                 if(currentTrack && currentTrack.id == track.id && !globalPlayer.paused)
-                    return "uk-icon-pause"
+                    return true;
                 else
-                    return "uk-icon-play"
+                    return false;
             }
         }
     };
