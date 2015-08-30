@@ -15,8 +15,9 @@
     "debowerify": "^1.1.1",
     "express": "^4.10.2",
     "matchdep": "~0.3.0",
-    "socket.io": "^1.2.1",
-    "sequelize": "^2.0.3"
+    "nodemailer": "^1.4.0",
+    "sequelize": "^2.0.3",
+    "socket.io": "^1.2.1"
   },
   "devDependencies": {
     "debowerify": "^1.1.1",
