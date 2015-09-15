@@ -20,7 +20,7 @@ player.directive('soundcloudPlayer', function() {
                 if(!$.trim(resourceLink))
                     throw new Error("resource link not set on directive soundcloud-player. Ex. <div soundcloud-player=\"/users/4246445/favorites\"></div>");
                 SC.initialize({
-                    client_id: "YOUR_CLIENT_ID"
+                    client_id:"e8d7520deac9c6d3f25a01fd60e843d8"
                 });
                 SC.get(resourceLink, {limit: 100}, function(tracks){
                     var _tracks = [];
