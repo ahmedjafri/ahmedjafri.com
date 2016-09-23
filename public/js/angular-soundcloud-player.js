@@ -22,7 +22,7 @@ player.directive('soundcloudPlayer', function() {
                 SC.initialize({
                     client_id:"e8d7520deac9c6d3f25a01fd60e843d8"
                 });
-                SC.get(resourceLink, {limit: 100}, function(tracks){
+                SC.get(resourceLink).then(function(tracks) {
                     var _tracks = [];
 
                     for(var i = 0; i < tracks.length; i++) {
@@ -47,11 +47,9 @@ player.directive('soundcloudPlayer', function() {
                     return;
                 }
 
-            	SC.stream(track.uri, {
-					useHTML5Audio: true
-            	}, function(sound){
-            		if(globalPlayer)
-            			globalPlayer.stop();
+            	SC.stream("/tracks/" + track.id).then(function(sound) {
+                    if(globalPlayer)
+                        globalPlayer.stop();
 
                     var shouldCallDigest = false;
                     if(!globalPlayer)
@@ -60,12 +58,12 @@ player.directive('soundcloudPlayer', function() {
                     globalPlayer = sound;
                     currentTrack = track;
 
-					globalPlayer.play();
+                    globalPlayer.play();
 
                     if(shouldCallDigest)
                         $scope.$digest();
-				});
-            };
+                });
+            }
 
             $scope.isPlaying = function(track) {
                 if(currentTrack && currentTrack.id == track.id && !globalPlayer.paused)
