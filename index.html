@@ -11,34 +11,52 @@
             font-size: 1.7em;
         }
 
-        a.header-link a:visited,
-        a:link,
-        a:active {
-            text-decoration: none;
+        a.header-link {
+            font-weight: 400;
+            text-decoration-line: underline;
+            text-decoration-style: dotted;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 3px;
         }
 
         a.header-link:hover {
-            text-decoration: underline;
-            font-weight: 500;
+            font-weight: 600;
+            text-decoration-style: solid;
+            text-decoration-thickness: 3px;
         }
     </style>
 </head>
 
 <body>
     <div class="container">
-
-        <div style="margin-top: 5em;"><span class="main-heading">Hello <b>World</b></span>
-            <div class="grid">
-                <div class="grid">
-                    <div class="row">
-                        <div class="col-sm-auto"><a class="header-link link-dark" href="#">Life Story</a></div>
-                        <div class="col-sm-auto"><a class="header-link link-dark" href="#">LinkedIn</a></div>
-                        <div class="col-sm-auto"><a class="header-link link-dark" href="#">Twitter</a></div>
-                        <div class="col-sm-auto"><a class="header-link link-dark" href="#">GitHub</a></div>
-                    </div>
+        <img style="margin-top: 5em; max-width: 130px;" src="./assets/face.jpg" class="img-thumbnail" alt="">
+        <div style="margin-top: 1em;"><span class="main-heading">Ahmed <b>Jafri</b></span>
+            <div class="row row-cols-auto no-gutters" style="margin-top: 0.3em;">
+                    <a class="header-link link-dark" href="#">About</a>
+                    <a class="header-link link-dark"
+                            href="https://www.linkedin.com/in/ahmedjafrii/">LinkedIn</a>
+                    <a class="header-link link-dark"
+                            href="https://twitter.com/ahmedjafrii">Twitter</a>
+                    <a class="header-link link-dark"
+                            href="https://github.com/ahmedjafri">GitHub</a>
+            </div>
+            <div style="margin-top: 2.5em;" class="row-cols-auto">
+                <div class="col-md-6">
+                    <p>👋 Hi! I focus on distributed systems problems at Facebook. My team, Delos, builds fault tolerant and strong consistency metadata storage systems for control plane applications. In the past I've implemented interactive transactions in Delos and a gossip based failure detector.</p>
+                    <p>
+                    I worked previously at Adobe Systems in the digital video and audio group where I worked on remote rendering of video and collaborative editing. I received my BS in EE/CSE from University of Washington.</p>
                 </div>
             </div>
+
+            <div style="margin-top: 2.5em;" class="row-cols-auto">
+                <h5>Publications</h5>
+            </div>
+            <div style="margin-top: 0.3em;" class="row">
+                <div class="header-link-col col-sm-auto"><a class="header-link link-dark" href="#">Log-structured Protocols in Delos</a> - SOSP 2021</div>
+            <div style="margin-top: 0.3em;" class="row">
+                    <div class="header-link-col col-sm-auto"><a class="header-link link-dark" href="#">Virtual Consensus in Delos</a> - OSDI 2020</div>
         </div>
+        <div class="container footer" style="height: 20em;"></div>
     </div>
 </body>
 
