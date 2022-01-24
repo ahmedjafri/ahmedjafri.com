@@ -2,6 +2,17 @@
 
 const fs = require('fs');
 const path = require('path');
+const {Liquid} = require('../templates/lib/liquid.browser.min.js');
+
+const liquid = new Liquid({
+    fs: {
+      readFileSync: (file) => fs.readFileSync(file, 'utf8'),
+      existsSync: (file) => fs.existsSync(file),
+      resolve: (root, file, ext) => path.resolve(root, ext ? file + ext : file),
+    },
+    root: path.resolve(__dirname, '..', 'templates/'),
+    dynamicPartials: false,
+  });
 
 function load(fileName) {
     return fs.readFileSync(fileName, 'utf8');
@@ -18,9 +29,10 @@ function renderDir(dir) {
       const content = load(source);
   
       const destination = path.join('build', file);
+      const body = liquid.parseAndRenderSync(content, {});
   
       fs.mkdirSync(path.dirname(destination), {recursive: true});
-      fs.writeFileSync(destination, content);
+      fs.writeFileSync(destination, body);
     }
 }
 
@@ -37,6 +49,6 @@ async function copyDir(dir) {
       }
 }
 
-renderDir('./')
+renderDir('pages')
 copyDir('assets')
 copyDir('lib')

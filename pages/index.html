@@ -1,0 +1,21 @@
+{% layout index.html %}
+
+{% block content %}
+<img style="margin-top: 5em; max-width: 130px;" src="./assets/face.jpg" class="img-thumbnail" alt="">
+{% render menu.html %}
+<div style="margin-top: 2.5em;" class="row-cols-auto">
+    <div class="col-md-6">
+        <p>👋 Hi! I focus on distributed systems problems at Facebook. My team builds fault tolerant storage systems such as Delos. I'm interested in programming, economics, startups and design.</p>
+    </div>
+</div>
+
+<div style="margin-top: 2.5em;" class="row-cols-auto">
+    <h5>Publications</h5>
+</div>
+<div style="margin-top: 0.3em;" class="row">
+    <div class="header-link-col col-sm-auto"><a class="header-link link-dark" href="https://research.facebook.com/publications/log-structured-protocols-in-delos/">Log-structured Protocols in Delos</a> - SOSP 2021</div>
+<div style="margin-top: 0.3em;" class="row">
+        <div class="header-link-col col-sm-auto"><a class="header-link link-dark" href="https://www.usenix.org/system/files/osdi20-balakrishnan.pdf">Virtual Consensus in Delos</a> - OSDI 2020</div>
+</div>
+<div class="container footer" style="height: 20em;"></div>
+{% endblock %}
